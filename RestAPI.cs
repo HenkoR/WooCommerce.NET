@@ -241,7 +241,7 @@ namespace WooCommerceNET
                         if (requestBody.ToString() == "fileupload")
                         {
                             httpWebRequest.Headers["Content-Disposition"] = $"form-data; filename=\"{parms["name"]}\"";
-                            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+                            httpWebRequest.ContentType = "multipart/form-data";
 
                             Stream dataStream = await httpWebRequest.GetRequestStreamAsync().ConfigureAwait(false);
                             FileStream fileStream = new FileStream(parms["path"], FileMode.Open, FileAccess.Read);
